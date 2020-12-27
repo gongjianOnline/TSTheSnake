@@ -17,7 +17,9 @@ module.exports = {
     filename:"bundle.js",
     // 告诉webpack不使用箭头
     environment:{
-      arrowFunction: false
+      arrowFunction: false,
+      // 默认不使用const(兼容IE)
+      const:false
     }
   },
   //指定webpack打包时要使用的模块
