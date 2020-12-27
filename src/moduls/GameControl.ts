@@ -33,7 +33,6 @@ class GameControl{
     * */
     keydownHandler(event: KeyboardEvent){
         // 需要检查event.key的值是否合法(用户是否按了正确的键)
-        
         // 修改direction属性
         this.direction = event.key;
     }
