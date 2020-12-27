@@ -1,4 +1,4 @@
-class Sanke{
+class Snake{
     // 获取蛇头的元素
     head: HTMLElement;
     // 蛇的身体(包括蛇头)
@@ -28,7 +28,8 @@ class Sanke{
     // 蛇增加身体的方法
     addBody(){
         // 想element添加一个div
-        this.element.insertAdjacentElement('deforeend','<div></div>')
+        let tempDiv = document.createElement("div")
+        this.element.insertAdjacentElement('beforeend',tempDiv)
     }
-
 }
+export default Snake;
