@@ -29,6 +29,8 @@ class Snake{
             // 进入判断说明蛇撞墙了
             throw new Error("蛇撞墙了")
         }
+        // 移动身体
+        this.moveBody()
         this.head.style.left = `${value}px`
     }
     set Y(value){
@@ -41,6 +43,8 @@ class Snake{
             // 进入判断说明蛇撞墙了
             throw new Error("蛇撞墙了")
         }
+        // 移动身体
+        this.moveBody()
         this.head.style.top = `${value}px`
     }
     // 蛇增加身体的方法
@@ -48,6 +52,21 @@ class Snake{
         // 想element添加一个div
         let tempDiv = document.createElement("div")
         this.element.insertAdjacentElement('beforeend',tempDiv)
+    }
+    // 添加一个蛇身体的
+    moveBody(){
+        /*
+        * 将后边的身体设置为前面身体的位置
+        * */
+        // 遍历获取所有的身体
+        for(let i = this.bodies.length-1;i>0;i--){
+            // 获取前边身体的位置
+            let x = (this.bodies[i-1] as HTMLElement).offsetLeft;
+            let y = (this.bodies[i-1] as HTMLElement).offsetTop;
+            // 将值设置到当前身体上
+            (this.bodies[i] as HTMLElement).style.left = `${x}px`;
+            (this.bodies[i] as HTMLElement).style.top = `${y}px`
+        }
     }
 }
 export default Snake;
